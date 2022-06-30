@@ -2,9 +2,9 @@ import React from 'react';
 import './Container.sass';
 
 interface ContainerProps {
-  children: React.ReactNode;
-  classWrapper: string;
-  contentLayout: string;
+  children: React.ReactNode
+  classWrapper: string
+  contentLayout: string
 }
 
 function Container({ children, classWrapper, contentLayout }: ContainerProps): React.ReactElement {

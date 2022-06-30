@@ -6,7 +6,7 @@ import Container from '../Container/Container';
 
 function ControlsBar(): React.ReactElement {
   const classWrapper = 'bar bar--controls';
-  const contentLayout = 'flex flex--align-center gap15';
+  const contentLayout = 'flex flex--align-center gap1';
   return (
     <Container classWrapper={classWrapper} contentLayout={contentLayout}>
       <SidebarToggleButton />

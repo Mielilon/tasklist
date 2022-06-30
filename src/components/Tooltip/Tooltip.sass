@@ -1,0 +1,50 @@
+@import '../../assets/styles/variables'
+.tooltip
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  &::before
+    content: attr(data-tooltip)
+    white-space: nowrap
+    position: absolute
+    background-color: red
+    opacity: 0
+    z-index: 10
+    top: -28px
+    padding: 4px 8px
+    border-radius: 5px
+    background-color: $black
+    color: $white
+    font-size: 12px
+    visibility: hidden
+    transition: .2s
+  &::after
+    transition: .1s
+    position: absolute
+    content: ''
+    opacity: 0
+    background-color: $black
+    top: -12px
+    transform: skew(0, 10deg) rotate(-40deg)
+    border-radius: 1px
+    width: 8px 
+    height: 8px 
+    visibility: hidden
+  &:hover::before
+    transition: .1s
+    opacity: 1
+    z-index: 10
+    visibility: visible
+  &:hover::after
+    transition: .3s
+    opacity: 1
+    z-index: 10
+    visibility: visible
+  &--bottom
+    &::before
+      top: auto
+      bottom: -32px
+    &::after
+      top: auto
+      bottom: -16px

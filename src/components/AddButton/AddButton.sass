@@ -1,0 +1,28 @@
+@import '../../assets/styles/variables'
+.add-button-wrapper
+  &--status
+    padding-right: 20px
+    .add-button
+      border-top: 3px solid $gray
+      color: $gray
+      cursor: pointer
+      &:hover
+        border-color: $main-color
+        color: $main-color
+  &--task
+    min-height: 30px
+    display: flex
+    align-items: center
+    color: $gray
+    .add-button
+      &:hover
+        color: $main-color
+.add-button
+  transition: .3s
+  border-radius: 5px
+  cursor: pointer
+  gap: 6px
+  display: flex
+  align-items: center
+  text-transform: uppercase
+  white-space: nowrap
