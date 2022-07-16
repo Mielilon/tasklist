@@ -1,14 +1,27 @@
 import React from 'react';
 
-interface IconProps {
-  type: string
+interface IIcon {
+  type: string,
+  size?: number
 }
-function Icon({ type }: IconProps): React.ReactElement {
+function Icon({ type, size }: IIcon): React.ReactElement {
   const Svg = require(`./assets/${type}.svg`).default;
 
+  const attributes: any = {};
+
+  if (size) {
+    attributes.width = size;
+    attributes.height = size;
+  }
+
   return (
-    <Svg />
+    <Svg
+      {...attributes}
+    />
   );
 }
+Icon.defaultProps = {
+  size: '',
+};
 
 export default Icon;

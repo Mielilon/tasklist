@@ -37,6 +37,7 @@ module.exports = {
               svgo: {
                 plugins: [
                   { removeTitle: false },
+                  { removeViewBox: false },
                 ],
                 floatPrecision: 2,
               },

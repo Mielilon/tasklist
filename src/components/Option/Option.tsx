@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import useOutsideClick from '../../hooks/useOutsideClick';
 import Icon from '../Icon/Icon';
 
 interface OptionProps {
@@ -11,33 +12,19 @@ interface OptionProps {
 
 function Option({ option }: OptionProps): React.ReactElement {
   const { label, modifier, modalComponent } = option;
-  const [flag, setFlag] = useState(false);
+  const [popupRef, changeVisibility, isVisible] = useOutsideClick();
 
-  const popupRef = useRef<HTMLLIElement>(null);
-
-  const changeFlag = (e: Event) => {
-    if (!popupRef.current?.contains(e.target as HTMLElement)) {
-      setFlag(false);
-    }
-  };
-
-  useEffect(() => {
-    if (flag) {
-      document.addEventListener('click', changeFlag);
-    }
-    return () => document.removeEventListener('click', changeFlag);
-  }, [flag]);
   return (
     <li className="option-list__item" ref={popupRef}>
       <button
         className={`option option--${modifier}`}
         type="button"
-        onClick={() => setFlag((prev) => !prev)}
+        onClick={changeVisibility}
       >
         <Icon type={modifier} />
         {label}
       </button>
-      {flag && modalComponent}
+      {isVisible && modalComponent}
     </li>
   );
 }
